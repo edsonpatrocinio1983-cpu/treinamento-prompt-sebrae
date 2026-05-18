@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Engenharia de Prompt: Do Caos ao Resultado | Sebrae 2025/2026</title>
+    <meta name="description" content="Treinamento corporativo interativo sobre Engenharia de Prompt com 6 módulos, base acadêmica e material de apoio em PDF.">
+    <meta name="keywords" content="prompt engineering, IA, treinamento, sebrae, educação">
+    <meta name="author" content="Edson Gonçalves Patrocínio">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2A4FDA;
+            --primary-light: #3D5FFF;
+            --accent: #FF8C00;
+            --accent-light: #FFB84D;
+            --bg: #FFFFFF;
+            --bg-light: #F5F5F5;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #EEEEEE;
+            --success: #4CAF50;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+        }
+
+        /* SECTION */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* INSTRUCTOR */
+        .instructor {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: start;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .instructor img {
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .instructor-info h3 {
+            margin-top: 0;
+        }
+
+        .instructor-info ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .instructor-info li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* MODULES */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .module-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .module-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .module-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .module-card .duration {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .module-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .score {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .instructor {
+                grid-template-columns: 1fr;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* TOOLTIP */
+        .tooltip {
+            position: relative;
+            border-bottom: 1px dotted var(--primary);
+            cursor: help;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        table th,
+        table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        table tr:hover {
+            background: var(--bg-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">🎓 Engenharia de Prompt</a>
+                <ul class="nav-links">
+                    <li><a href="#modulos">Módulos</a></li>
+                    <li><a href="#checklist">Checklist</a></li>
+                    <li><a href="#download">Material</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>🚀 Engenharia de Prompt: Do Caos ao Resultado</h1>
+            <p>Treinamento corporativo interativo — Sebrae 2025/2026</p>
+            <p style="font-size: 1rem; margin-bottom: 1.5rem;">
+                Domine a comunicação com <span class="tooltip" data-tooltip="Inteligência Artificial">IA</span> em 40 minutos com base acadêmica sólida
+            </p>
+            <button class="btn" onclick="document.getElementById('modulos').scrollIntoView({behavior: 'smooth'})">
+                Começar Treinamento
+            </button>
+            <button class="btn btn-secondary" onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'})">
+                Baixar Material
+            </button>
+        </div>
+    </section>
+
+    <!-- INSTRUTOR -->
+    <section id="instrutor">
+        <div class="container">
+            <h2>👨‍🏫 Sobre o Instrutor</h2>
+            <div class="instructor">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGy-h2ZR2YDZA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1680000000000?e=1234567890&v=beta&t=abc" alt="Edson Gonçalves Patrocínio" style="max-width: 150px;">
+                <div class="instructor-info">
+                    <h3>Edson Gonçalves Patrocínio</h3>
+                    <p><strong>Especialista em Design Instrucional | 15+ anos em Educação Corporativa</strong></p>
+                    <p>Formação múltipla: Pedagogia, Administração, Geografia e Designer Instrucional (FAP 2022). Experiência em Senac MG e Grupo Actcon.</p>
+                    <p><strong>Competências:</strong></p>
+                    <ul>
+                        <li>Design Instrucional Avançado</li>
+                        <li>Educação Corporativa</li>
+                        <li>Treinamento em IA e Prompt Engineering</li>
+                        <li>Metodologias Ativas de Aprendizagem</li>
+                        <li>Avaliação e Feedback</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://www.linkedin.com/in/edson-gonçalves-patrocínio-a2595629" target="_blank" class="btn" style="display: inline-block;">
+                            Conectar no LinkedIn
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÓDULOS -->
+    <section id="modulos">
+        <div class="container">
+            <h2>📚 6 Módulos Estruturados</h2>
+            
+            <div class="modules-grid">
+                <div class="module-card" onclick="toggleModule(1)">
+                    <h4>1️⃣ Fundamentos & Base Metodológica</h4>
+                    <div class="duration">⏱️ 5 minutos</div>
+                    <p>Como <span class="tooltip" data-tooltip="Large Language Models - Modelos de Linguagem Grandes">LLMs</span> funcionam realmente. Entenda <span class="tooltip" data-tooltip="Processo de dividir texto em unidades menores">tokenização</span>, <span class="tooltip" data-tooltip="Representações numéricas de palavras">embeddings</span> e mecanismo de <span class="tooltip" data-tooltip="Mecanismo que permite ao modelo focar em partes específicas do texto">atenção</span>.</p>
+                </div>
+
+                <div class="module-card" onclick="toggleModule(2)">
+                    <h4>2️⃣ Os 5 Frameworks</h4>
+                    <div class="duration">⏱️ 8 minutos</div>
+                    <p>5 metodologias comprovadas: <strong>RTF</strong>, <strong>CREATE</strong>, <strong>AIM</strong>, <strong>C.E.R.T.O</strong> e <strong>Chain-of-Thought</strong>. Cada um com casos de uso específicos.</p>
+                </div>
+
+                <div class="module-card" onclick="toggleModule(3)">
+                    <h4>3️⃣ Certo vs. Errado</h4>
+                    <div class="duration">⏱️ 7 minutos</div>
+                    <p>8 casos reais analisados lado a lado. Veja exatamente o que funciona e o que não funciona em prompts reais.</p>
+                </div>
+
+                <div class="module-card" onclick="toggleModule(4)">
+                    <h4>4️⃣ As 9 Técnicas Avançadas</h4>
+                    <div class="duration">⏱️ 10 minutos</div>
+                    <p><span class="tooltip" data-tooltip="Fazer uma tarefa sem exemplos prévios">Zero-Shot</span>, <span class="tooltip" data-tooltip="Fazer uma tarefa com poucos exemplos">Few-Shot</span>, Context Engineering e mais 6 técnicas poderosas.</p>
+                </div>
+
+                <div class="module-card" onclick="toggleModule(5)">
+                    <h4>5️⃣ Mapa das IAs 2025/2026</h4>
+                    <div class="duration">⏱️ 6 minutos</div>
+                    <p>10+ categorias de IAs: Textos, Imagens, Pesquisa, Código, Áudio e mais. Qual usar para cada tarefa?</p>
+                </div>
+
+                <div class="module-card" onclick="toggleModule(6)">
+                    <h4>6️⃣ Checklist & Simulação Final</h4>
+                    <div class="duration">⏱️ 4 minutos</div>
+                    <p>12 critérios práticos. Template universal copiável. Simulação final com pontuação em tempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="checklist">
+        <div class="container">
+            <h2>✅ Checklist de Engenharia de Prompt</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Marque os critérios que você atende em seus prompts:</p>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <input type="checkbox" id="c1" onchange="updateScore()">
+                    <label for="c1"><strong>Objetivo claro:</strong> Você definiu exatamente o que quer que a IA faça?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c2" onchange="updateScore()">
+                    <label for="c2"><strong>Contexto:</strong> Você forneceu contexto suficiente?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c3" onchange="updateScore()">
+                    <label for="c3"><strong>Exemplo:</strong> Você deu um exemplo de saída desejada?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c4" onchange="updateScore()">
+                    <label for="c4"><strong>Formato:</strong> Você especificou o formato de resposta?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c5" onchange="updateScore()">
+                    <label for="c5"><strong>Tom:</strong> Você definiu o tom desejado?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c6" onchange="updateScore()">
+                    <label for="c6"><strong>Restrições:</strong> Você mencionou o que NÃO fazer?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c7" onchange="updateScore()">
+                    <label for="c7"><strong>Público:</strong> Você especificou o público-alvo?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c8" onchange="updateScore()">
+                    <label for="c8"><strong>Comprimento:</strong> Você definiu tamanho aproximado?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c9" onchange="updateScore()">
+                    <label for="c9"><strong>Estrutura:</strong> Você pediu uma estrutura específica?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c10" onchange="updateScore()">
+                    <label for="c10"><strong>Iteração:</strong> Você está pronto para refinar?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c11" onchange="updateScore()">
+                    <label for="c11"><strong>Validação:</strong> Você vai validar a resposta?</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="c12" onchange="updateScore()">
+                    <label for="c12"><strong>Feedback:</strong> Você vai dar feedback à IA?</label>
+                </div>
+
+                <div class="score">
+                    Sua Pontuação: <span id="score">0</span>/12 (0%)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download">
+        <div class="container">
+            <h2>📥 Material de Apoio</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">
+                Baixe o mini livro completo com toda a base metodológica, referências acadêmicas e exemplos detalhados.
+            </p>
+            <div style="text-align: center;">
+                <a href="https://manus-storage.s3.amazonaws.com/Engenharia_de_Prompt_Mini_Livro.pdf" class="btn" download>
+                    📄 Baixar Mini Livro em PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+        <div class="container">
+            <h2>📞 Contato & Suporte</h2>
+            <div style="text-align: center;">
+                <p><strong>Instrutor:</strong> Edson Gonçalves Patrocínio</p>
+                <p>
+                    <a href="https://www.linkedin.com/in/edson-gonçalves-patrocínio-a2595629" target="_blank">
+                        🔗 Conectar no LinkedIn
+                    </a>
+                </p>
+                <p style="margin-top: 2rem;">
+                    <a href="https://github.com/edsonpatrocinio1983-cpu/treinamento-prompt-sebrae" target="_blank">
+                        📦 Ver no GitHub
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Treinamento Engenharia de Prompt — Sebrae</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Licença CC BY 4.0</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function updateScore() {
+            let checked = 0;
+            for (let i = 1; i <= 12; i++) {
+                if (document.getElementById('c' + i).checked) {
+                    checked++;
+                }
+            }
+            const percentage = Math.round((checked / 12) * 100);
+            document.getElementById('score').textContent = checked + ' (' + percentage + '%)';
+        }
+
+        function toggleModule(num) {
+            alert('Módulo ' + num + ' - Conteúdo detalhado aqui');
+        }
+    </script>
+</body>
+</html>
